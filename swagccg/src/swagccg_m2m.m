@@ -106,7 +106,7 @@ function header_str = client_imports_f()
     header_str = {...
     ['% auto-generated ', time_stamp];
     ['% ... using [swagccg_m2m](https://erkandem.github.io/swagccg_m2m)'];
-    ['% DO NOT MODIFY THIS FILE.
+    ['% DO NOT MODIFY THIS FILE.'];
     ['% Your changes will be lost! Edit the template'];
     ['% {e.g. your message }  '];
     ['%  '];

@@ -1,12 +1,15 @@
 function test_petstore_play_book(confi_path)
     %% wrapper around the core logic
-    % which currently consists of 5 (6) tests:
+    % which currently consists of 8 tests:
+    % %will be updated / refactored
     %
     %  0. client creation
-    %  1. post with body
+    %  1. post with UINT8 body 
     %  2. put with body
+    %  2 1/2. post with form data
     %  3. get with query string
-    %  4. post with path parameter and query string
+    %  3 1/2. post with form data
+    %  4. get with query string
     %  5. delete with path param and query string
     %
     % Gotchas:
@@ -32,13 +35,14 @@ function test_petstore_play_book(confi_path)
     %% test fixtures
     file_path = which('petstore_play_book.m');
     [root_folder, ~, ~] = fileparts(file_path);
+    
     if nargin == 0
         confi_path = fullfile(root_folder, 'confi.json');
     end
     
     swagccg_m2m(confi_path);
     CLIENT = TestPetStoreClient('remote');  % instantiate client
-    PET_ID = randi([10 ^ 5, 9 ^ 6], 1);  % range bound pseudo random pet-id
+    PET_ID = randi([10 ^ 10, 9 ^ 11], 1);  % range bound pseudo random pet-id
 
 
     %% read in default request body
@@ -121,15 +125,48 @@ function test_petstore_play_book(confi_path)
         fprintf('<strong>TEST 2 FAILED %s == %s</strong>\n', r2.photoUrls{1}, NEW_URL);
     end
 
+    %% 2 1/2. Test
+    % set pet status to pending
+    % main reason is response time: 143912 available, 149 pending, 78 sold)
+    
+    implemented  = false;
+    if implemented == true
+        body = struct();
+        body.('name') ='status';
+        body.('value') = 'pending';
+    else
+        body = {'status', 'pending'};
+        body = sprintf('%s=%s', body{1,1},  body{1, 2});
+    end
+    
+    headers = struct();
+    headers.name = 'Content-Type';
+    headers.value = 'application/x-www-form-urlencoded';
+    r2_5  = CLIENT.post_update_pet_with_form_r(sprintf('%d', PET_ID), [], body, headers);
+
+    test_2_5_result = false;
+    if isa(r2_5 , 'double') 
+        if r2_5 == 200
+            test_2_5_result  = true;
+        end
+    end
+
+    if test_2_5_result
+        fprintf('TEST 2 1/2 SUCCESSFULL ``%d`` \n', r2_5);
+    else
+        fprintf('<strong>TEST 2 1/2 FAILED ``%d``</strong>\n', r2_5);
+    end
+
 
     %% 3. Test
+    % query the pets with ``pending`` ``status``
     implemented  = false;
     if implemented == true
         fields = struct();
         fields.('name') ='status';
-        fields.('value') = 'available';
+        fields.('value') = 'pending';
     else
-        fields = {'status', 'available'};    
+        fields = {'status', 'pending'};  
     end
     r3 = CLIENT.get_find_pets_by_status_r(fields, [], []);
 
@@ -139,7 +176,11 @@ function test_petstore_play_book(confi_path)
     for i = 1 : numel(r3)
         id(i, 1) = r3{i}.id;
     end
-
+    
+    % for i = 1 : numel(id)
+    % fprintf('%d\n', id(i));
+    % end
+    
     test_3_result = false;
     if sum(PET_ID == id) == 1
         test_3_result = true;
@@ -149,39 +190,79 @@ function test_petstore_play_book(confi_path)
         fprintf('TEST 3 SUCCESSFULL %d in results \n', PET_ID);
     else
         fprintf('<strong>TEST 3 FAILED %d NOT in results </strong> \n', PET_ID);
-
     end
 
 
-    %% 4. Test
+    %% 4 1/2 Test
+    % change status to sold
     implemented  = false;
     if implemented == true
-        update = struct();
-        update.('name') ='status';
-        update.('value') = 'available';
+        body = struct();
+        body.('name') ='status';
+        body.('value') = 'sold';
     else
-        update = {'name', 'koalabaerchen_updated'; 'status', 'pending'};
+        body = {'name', 'koalabaerchen_updated'; 'status', 'sold'};
+        body_str = sprintf('%s=%s', body{1, 1},  body{1, 2});
+        body_str = [body_str, '&', sprintf('%s=%s', body{2, 1},  body{2, 2})];
+        body = body_str;
     end
+    
+    headers = struct();
+    headers.name = 'Content-Type';
+    headers.value = 'application/x-www-form-urlencoded';
+        
+    r4_5  = CLIENT.post_update_pet_with_form_r(sprintf('%d', PET_ID), [], body, headers);
 
-    r4  = CLIENT.post_update_pet_with_form_r(sprintf('%d', PET_ID), update, [], []);
-
-    test_4_result = false;
-    if isa(r4 , 'double') 
-        if r4 == 200
-            test_4_result  = true;
+    test_4_5_result = false;
+    if isa(r4_5 , 'double') 
+        if r4_5 == 200
+            test_4_5_result  = true;
         end
     end
 
-    if test_4_result
-        fprintf('TEST 4 SUCCESSFULL ``%d`` \n', r4);
+    if test_4_5_result
+        fprintf('TEST 4_5 SUCCESSFULL ``%d`` \n', r4_5);
     else
-        fprintf('<strong>TEST 4 FAILED ``%d``</strong>\n', r4);
+        fprintf('<strong>TEST 4_5 FAILED ``%d``</strong>\n', r4_5);
+    end
+    %% test 4
+    % query the pets with ``pending`` ``status``
+    implemented  = false;
+    if implemented == true
+        fields = struct();
+        fields.('name') ='status';
+        fields.('value') = 'sold';
+    else
+        fields = {'status', 'sold'};  
+    end
+    r4 = CLIENT.get_find_pets_by_status_r(fields, [], []);
+
+    % evaluate
+    id = zeros(numel(r4), 1);
+
+    for i = 1 : numel(r4)
+        id(i, 1) = r4{i}.id;
+    end
+    
+    % for i = 1 : numel(id)
+    % fprintf('%d\n', id(i));
+    % end
+    
+    test_4_result = false;
+    if sum(PET_ID == id) == 1
+        test_4_result = true;
     end
 
-
+    if test_4_result
+        fprintf('TEST 4 SUCCESSFULL %d in results \n', PET_ID);
+    else
+        fprintf('<strong>TEST 4 FAILED %d NOT in results </strong> \n', PET_ID);
+    end
     %% 5. Test
     test_final_result = false;
-    r_final = CLIENT.delete_pet_r(sprintf('%d', PET_ID), update, [], []);
+    body = {'name', 'koalabaerchen_updated'; 'status', 'sold'};
+
+    r_final = CLIENT.delete_pet_r(sprintf('%d', PET_ID), body, [], []);
     if isa(r_final , 'double') 
         if r_final == 200
             test_final_result = true;
