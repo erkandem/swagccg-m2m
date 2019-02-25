@@ -83,12 +83,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">swagccg_m2m</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#download-the-distribution">Download the distribution</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#a-client-code-generation">a) Client Code Generation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#b-client-code-usage">b) Client Code Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-word-on-json-in-matlab">a Word on JSON in MatLab</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#gotchas">gotchas</a></li>
@@ -167,9 +165,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure" id="id1">
-<img alt="License1" src="https://img.shields.io/badge/License-BSD3-green.svg" /><p class="caption"><span class="caption-text">License1</span></p>
-</div>
+  <p><img alt="image0" src="https://img.shields.io/badge/License-BSD-green.svg" /></p>
 <div class="section" id="swagccg-m2m">
 <h1>swagccg_m2m<a class="headerlink" href="#swagccg-m2m" title="Permalink to this headline">¶</a></h1>
 <p><em>100% MatLab only client code generator for swagger (OpenAPI 2.0). Using
@@ -188,20 +184,33 @@ everyone.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>GitHub</li>
+</ol>
+<p>Releases are published on GitHub and mirrored on the file-exchange. If
+you have trouble related to <code class="docutils literal notranslate"><span class="pre">newline</span></code> try a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code></p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">erkandem</span><span class="o">/</span><span class="n">swagccg</span><span class="o">-</span><span class="n">m2m</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">latest</span>
+</pre></div>
 </div>
-</div>
-<div class="section" id="download-the-distribution">
-<h1>Download the distribution<a class="headerlink" href="#download-the-distribution" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple" start="2">
+<li>MPM</li>
+</ol>
 <p>🚨 <strong>not yet</strong></p>
 <div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpm</span> <span class="n">install</span> <span class="n">swagccg</span><span class="o">-</span><span class="n">m2m</span>
 </pre></div>
 </div>
-<p><strong>Bro, WT! is mpm?</strong></p>
 <p><a class="reference external" href="http://mobeets.github.io/mpm/">Simple MATLAB package management inspired by
 pip</a></p>
-<p>or clone it into your development folder</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">erkandem</span><span class="o">/</span><span class="n">swagccg</span><span class="o">-</span><span class="n">m2m</span><span class="o">.</span><span class="n">git</span>
+<ol class="arabic simple" start="3">
+<li>git clone</li>
+</ol>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">erkandem</span><span class="o">/</span><span class="n">swagccg</span><span class="o">-</span><span class="n">m2m</span><span class="o">.</span><span class="n">git</span> <span class="n">swagccg</span><span class="o">-</span><span class="n">m2m</span>
 </pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> way is rather for developers of this repo.
+Nonetheless, running <code class="docutils literal notranslate"><span class="pre">swagccg_m2m_package</span></code> after cloning will package
+a <code class="docutils literal notranslate"><span class="pre">user</span> <span class="pre">version</span></code> Currently, all dependencies are included in a .zip
+file.</p>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
@@ -217,7 +226,7 @@ char array (string) to such a json</p>
 <div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swagccg_m2m</span><span class="p">(</span><span class="s1">&#39;abs/or/relative/path/to/your/jsonfile.json&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Below is an example of susch a file</p>
+<p>Below is an example.</p>
 <p><strong>confi.json</strong></p>
 <div class="code json highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;swagger_path&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/Users/Abuser/your_project/swagger.json&quot;</span><span class="p">,</span>
@@ -238,10 +247,10 @@ char array (string) to such a json</p>
 <div class="section" id="b-client-code-usage">
 <h3>b) Client Code Usage<a class="headerlink" href="#b-client-code-usage" title="Permalink to this headline">¶</a></h3>
 <p>🚨 <strong>the tool is not designed to work out of the box</strong> It’s not that I
-dont’t believe in miracles. But I’d expect that you will need to work on
-the client after generating the code. Specifically, everything around
-<em>Authentification</em></p>
-<p>Have a look at the petstore example and test in the tests folder.</p>
+don’t believe in miracles. But I’d expect that you will need to work on
+the client code after generating the client code. Specifically,
+everything around <em>Authentication</em></p>
+<p>Have a look at the pet store example and test in the tests folder.</p>
 <p>Now, you or your end users could access the API via</p>
 <div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">credentials</span><span class="o">.</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;username&#39;</span><span class="p">;</span>
 <span class="n">credentials</span><span class="o">.</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;youd_never_guess_that&#39;</span>
@@ -250,21 +259,24 @@ the client after generating the code. Specifically, everything around
 <span class="n">my_client</span><span class="o">.</span><span class="n">login_with_api</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>###h a Word on JSON in MatLab</p>
-<p>MatLab has a built in function to encode and decode JSON objects to
-MatLab types The<code class="docutils literal notranslate"><span class="pre">paths</span></code> object within a <code class="docutils literal notranslate"><span class="pre">swagger.json</span></code> API
+</div>
+<div class="section" id="a-word-on-json-in-matlab">
+<h3>a Word on JSON in MatLab<a class="headerlink" href="#a-word-on-json-in-matlab" title="Permalink to this headline">¶</a></h3>
+<p>MatLab has a built-in function to encode and decode JSON objects to
+MatLab types. The<code class="docutils literal notranslate"><span class="pre">paths</span></code> object within a <code class="docutils literal notranslate"><span class="pre">swagger.json</span></code> API
 definition has characters like <code class="docutils literal notranslate"><span class="pre">/</span></code> or curly braces in case of path
-parameters <code class="docutils literal notranslate"><span class="pre">/{pathParam}</span></code>. Obviously strings with these chracters are
-not valid variable or fieldnames in MatLab. Lacking the hackability of
-the built-in function I modified <code class="docutils literal notranslate"><span class="pre">loadjson</span></code> from <code class="docutils literal notranslate"><span class="pre">jsonlab</span></code>.</p>
+parameters like <code class="docutils literal notranslate"><span class="pre">/{pathParam}</span></code>. Obviously strings with these
+characters are not valid variables or fieldnames in MatLab. Therefore a
+version of <code class="docutils literal notranslate"><span class="pre">loadjson</span></code> from <code class="docutils literal notranslate"><span class="pre">jsonlab</span></code> was modified to overcome that
+hurdle.</p>
 </div>
 </div>
 <div class="section" id="gotchas">
 <h2>gotchas<a class="headerlink" href="#gotchas" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>authorization is highly custom</li>
+<li>authorization is likely to be a break-point</li>
 <li>most of the swagger details are not parsed</li>
-<li>models and mapping is omitted</li>
+<li>data models and mapping is omitted but adaptable</li>
 <li>little to none <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">status</span> <span class="pre">codes</span></code> parsing</li>
 <li>assumes knowledge on HTTP HEADER, BODY, METHODs</li>
 </ul>
@@ -293,15 +305,15 @@ Specififcation</a></p>
 <p>My part of the cake is licensed under terms of BSD. (approx: MIT +
 “Don’t use my name to advertise your code”) For details please see the
 <code class="docutils literal notranslate"><span class="pre">`license</span></code> &lt;LICENSE&gt;`__ file of this project.</p>
-<p>This project is dependent on code by: -
-<code class="docutils literal notranslate"><span class="pre">`urlread2</span> <span class="pre">v</span> <span class="pre">2012</span></code> &lt;<a class="reference external" href="https://www.mathworks.com/matlabcentral/fileexchange/35693-urlread2">https://www.mathworks.com/matlabcentral/fileexchange/35693-urlread2</a>&gt;`__
-- <code class="docutils literal notranslate"><span class="pre">`jsonlab</span>&#160; <span class="pre">v</span> <span class="pre">1.5</span></code> &lt;<a class="reference external" href="https://github.com/fangq/jsonlab">https://github.com/fangq/jsonlab</a>&gt;`__</p>
+<p>This project is dependent on code by: - <a class="reference external" href="https://www.mathworks.com/matlabcentral/fileexchange/35693-urlread2">urlread2
+v2012</a></p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/fangq/jsonlab">jsonlab v1.5</a></li>
+</ul>
 </div>
 <div class="section" id="client-code-license">
 <h2>Client Code License<a class="headerlink" href="#client-code-license" title="Permalink to this headline">¶</a></h2>
 <p>Show some love and leave a project link.</p>
-<p>and a modified version <code class="docutils literal notranslate"><span class="pre">loadjson</span></code> as well as the license files of
-other projects within the source code.</p>
 </div>
 <div class="section" id="click-bait">
 <h2>Click Bait<a class="headerlink" href="#click-bait" title="Permalink to this headline">¶</a></h2>

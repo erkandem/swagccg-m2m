@@ -1,7 +1,4 @@
-.. figure:: https://img.shields.io/badge/License-BSD3-green.svg
-   :alt: License1
-
-   License1
+|image0|
 
 swagccg_m2m
 ===========
@@ -26,8 +23,16 @@ everyone.
 Installation
 ------------
 
-Download the distribution
-=========================
+1. GitHub
+
+Releases are published on GitHub and mirrored on the file-exchange. If
+you have trouble related to ``newline`` try a ``git clone``
+
+.. code:: bash
+
+   https://github.com/erkandem/swagccg-m2m/releases/latest
+
+2. MPM
 
 🚨 **not yet**
 
@@ -35,16 +40,19 @@ Download the distribution
 
    mpm install swagccg-m2m
 
-**Bro, WT! is mpm?**
-
 `Simple MATLAB package management inspired by
 pip <http://mobeets.github.io/mpm/>`__
 
-or clone it into your development folder
+3. git clone
 
 .. code:: bash
 
-   git clone https://github.com/erkandem/swagccg-m2m.git
+   git clone https://github.com/erkandem/swagccg-m2m.git swagccg-m2m 
+
+The ``git clone`` way is rather for developers of this repo.
+Nonetheless, running ``swagccg_m2m_package`` after cloning will package
+a ``user version`` Currently, all dependencies are included in a .zip
+file.
 
 Usage
 -----
@@ -66,7 +74,7 @@ char array (string) to such a json
 
    swagccg_m2m('abs/or/relative/path/to/your/jsonfile.json')
 
-Below is an example of susch a file
+Below is an example.
 
 **confi.json**
 
@@ -90,11 +98,11 @@ b) Client Code Usage
 ~~~~~~~~~~~~~~~~~~~~
 
 🚨 **the tool is not designed to work out of the box** It’s not that I
-dont’t believe in miracles. But I’d expect that you will need to work on
-the client after generating the code. Specifically, everything around
-*Authentification*
+don’t believe in miracles. But I’d expect that you will need to work on
+the client code after generating the client code. Specifically,
+everything around *Authentication*
 
-Have a look at the petstore example and test in the tests folder.
+Have a look at the pet store example and test in the tests folder.
 
 Now, you or your end users could access the API via
 
@@ -106,21 +114,23 @@ Now, you or your end users could access the API via
    my_client = MyApiClient('local')
    my_client.login_with_api(credentials)
 
-###h a Word on JSON in MatLab
+a Word on JSON in MatLab
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-MatLab has a built in function to encode and decode JSON objects to
-MatLab types The\ ``paths`` object within a ``swagger.json`` API
+MatLab has a built-in function to encode and decode JSON objects to
+MatLab types. The\ ``paths`` object within a ``swagger.json`` API
 definition has characters like ``/`` or curly braces in case of path
-parameters ``/{pathParam}``. Obviously strings with these chracters are
-not valid variable or fieldnames in MatLab. Lacking the hackability of
-the built-in function I modified ``loadjson`` from ``jsonlab``.
+parameters like ``/{pathParam}``. Obviously strings with these
+characters are not valid variables or fieldnames in MatLab. Therefore a
+version of ``loadjson`` from ``jsonlab`` was modified to overcome that
+hurdle.
 
 gotchas
 -------
 
--  authorization is highly custom
+-  authorization is likely to be a break-point
 -  most of the swagger details are not parsed
--  models and mapping is omitted
+-  data models and mapping is omitted but adaptable
 -  little to none ``HTTP status codes`` parsing
 -  assumes knowledge on HTTP HEADER, BODY, METHODs
 
@@ -158,17 +168,15 @@ My part of the cake is licensed under terms of BSD. (approx: MIT +
 “Don’t use my name to advertise your code”) For details please see the
 ```license`` <LICENSE>`__ file of this project.
 
-This project is dependent on code by: -
-```urlread2 v 2012`` <https://www.mathworks.com/matlabcentral/fileexchange/35693-urlread2>`__
-- ```jsonlab  v 1.5`` <https://github.com/fangq/jsonlab>`__
+This project is dependent on code by: - `urlread2
+v2012 <https://www.mathworks.com/matlabcentral/fileexchange/35693-urlread2>`__
+
+-  `jsonlab v1.5 <https://github.com/fangq/jsonlab>`__
 
 Client Code License
 -------------------
 
 Show some love and leave a project link.
-
-and a modified version ``loadjson`` as well as the license files of
-other projects within the source code.
 
 Click Bait
 ----------
@@ -176,3 +184,6 @@ Click Bait
 Visitors who were interested in this repo also took a look at:
 `swagccg-py2py - Python to Python Client Code
 Generator <https://github.com/erkandem/swagccg_py2py>`__
+
+.. |image0| image:: https://img.shields.io/badge/License-BSD-green.svg
+
