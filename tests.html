@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tests &mdash; swagccg-m2m 2019 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Example Client" href="client_example.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> swagccg-m2m
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">swagccg_m2m</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#download-the-distribution">Download the distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_api.html">swagccg core API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_example.html">Example Client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#final-notes-on-tests">Final notes on Tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">swagccg-m2m</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Tests</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tests.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tests">
+<h1>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h1>
+<p>The primary test target would be the client code generation.
+Instead, I focused on creating an example which will test the
+client functionality against the perstore API.</p>
+<p><code class="docutils literal notranslate"><span class="pre">test_petstore_play_book</span></code> could serve as a starting point to write your own tests.</p>
+<dl class="function">
+<dt id="swagccg.tests.test_petstore_play_book">
+<code class="descclassname">swagccg.tests.</code><code class="descname">test_petstore_play_book</code><span class="sig-paren">(</span><em>confi_path</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.test_petstore_play_book" title="Permalink to this definition">¶</a></dt>
+<dd><p>wrapper around the core logic
+which currently consists of 5 (6) tests:</p>
+<blockquote>
+<div><ol class="arabic simple" start="0">
+<li>client creation</li>
+<li>post with body</li>
+<li>put with body</li>
+<li>get with query string</li>
+<li>post with path parameter and query string</li>
+<li>delete with path param and query string</li>
+</ol>
+</div></blockquote>
+<dl class="docutils">
+<dt>Gotchas:</dt>
+<dd><ul class="first last">
+<li><p class="first">Since the current version is dependent on <code class="xref mat mat-func docutils literal notranslate"><span class="pre">urlread2()</span></code>,
+the body content of a request should be encoded using <code class="xref mat mat-func docutils literal notranslate"><span class="pre">uint8()</span></code>.
+This will prohibit further meddling with the request body
+on behalf of <code class="xref mat mat-func docutils literal notranslate"><span class="pre">urlread2()</span></code>.</p>
+</li>
+<li><p class="first">The URL of Some ressources require the usage of path parameters:</p>
+<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sprintf</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">PET_ID</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A formatting string (e.g. <code class="docutils literal notranslate"><span class="pre">%d</span></code>) is required since the tool in its current
+conditon doesn’t parse/store the data type of the parameter.</p>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">implemented</span> <span class="pre">=</span> <span class="pre">false;</span></code> refers to the usage of structs rather
+than cellstrings. <code class="xref mat mat-func docutils literal notranslate"><span class="pre">struct2cell()</span></code></p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="final-notes-on-tests">
+<h1>Final notes on Tests<a class="headerlink" href="#final-notes-on-tests" title="Permalink to this headline">¶</a></h1>
+<p>The tests are incomplete and avoid MatLab built-in because the author is spoiled by PyTest.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="client_example.html" class="btn btn-neutral" title="Example Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Erkan Demiralay.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2019',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Example Client &mdash; swagccg-m2m 2019 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tests" href="tests.html" />
+    <link rel="prev" title="swagccg core API" href="core_api.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> swagccg-m2m
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">swagccg_m2m</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#download-the-distribution">Download the distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_api.html">swagccg core API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html#final-notes-on-tests">Final notes on Tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">swagccg-m2m</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Example Client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/client_example.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="example-client">
+<h1>Example Client<a class="headerlink" href="#example-client" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="swagccg.tests.TestPetStoreClient">
+<em class="property">class </em><code class="descclassname">swagccg.tests.</code><code class="descname">TestPetStoreClient</code><a class="headerlink" href="#swagccg.tests.TestPetStoreClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summary of this class goes here
+Detailed explanation goes here</p>
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.API_BASE_URL">
+<code class="descname">API_BASE_URL</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.API_BASE_URL" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.API_ENDPOINTS">
+<code class="descname">API_ENDPOINTS</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.API_ENDPOINTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>dummy</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.API_LOGIN_URL">
+<code class="descname">API_LOGIN_URL</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.API_LOGIN_URL" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.API_PORT">
+<code class="descname">API_PORT</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.API_PORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.API_PROTOCOL">
+<code class="descname">API_PROTOCOL</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.API_PROTOCOL" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.API_REFRESH_URL">
+<code class="descname">API_REFRESH_URL</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.API_REFRESH_URL" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.API_TOKEN">
+<code class="descname">API_TOKEN</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.API_TOKEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.API_URL">
+<code class="descname">API_URL</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.API_URL" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.API_URL_BASE">
+<code class="descname">API_URL_BASE</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.API_URL_BASE" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.AUTH_HEADER_NAME">
+<code class="descname">AUTH_HEADER_NAME</code><em class="property"> = &quot;'Authorization'&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.AUTH_HEADER_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.AUTH_PREFIX">
+<code class="descname">AUTH_PREFIX</code><em class="property"> = &quot;'Bearer '&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.AUTH_PREFIX" title="Permalink to this definition">¶</a></dt>
+<dd><p>mind the whitespace</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.AUTH_TOKEN_KEY">
+<code class="descname">AUTH_TOKEN_KEY</code><em class="property"> = &quot;'access_token'&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.AUTH_TOKEN_KEY" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.AUTH_TOKEN_KEY_REFRESH">
+<code class="descname">AUTH_TOKEN_KEY_REFRESH</code><em class="property"> = &quot;'refreshed_token'&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.AUTH_TOKEN_KEY_REFRESH" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.BASE_PATH">
+<code class="descname">BASE_PATH</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.BASE_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.DEPLOYMENT">
+<code class="descname">DEPLOYMENT</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.DEPLOYMENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.LOGIN_TIMESTAMP">
+<code class="descname">LOGIN_TIMESTAMP</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.LOGIN_TIMESTAMP" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.METHODS_WITH_BODY">
+<code class="descname">METHODS_WITH_BODY</code><em class="property"> = &quot;{'POST', 'PUT', 'PATCH'}&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.METHODS_WITH_BODY" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="swagccg.tests.TestPetStoreClient.PetStoreClient">
+<em class="property">static </em><code class="descname">PetStoreClient</code><span class="sig-paren">(</span><em>deployment</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.PetStoreClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>ClassConstructor equivalent of __init__ 
+.. todo:: almost everything here should be configured during client creation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.REFRESH_KEY">
+<code class="descname">REFRESH_KEY</code><em class="property"> = &quot;'token'&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.REFRESH_KEY" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.REFRESH_TIMESTAMP">
+<code class="descname">REFRESH_TIMESTAMP</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.REFRESH_TIMESTAMP" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.create_users_with_array_input_r">
+<code class="descname">create_users_with_array_input_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.create_users_with_array_input_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates list of users with given input array</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.create_users_with_list_input_r">
+<code class="descname">create_users_with_list_input_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.create_users_with_list_input_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates list of users with given input array</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>self</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>abstracted decoding point</p>
+<p>Mount your custom function. Focus here is on JSON.</p>
+<p>MatLab users may prefer the built in <code class="xref mat mat-func docutils literal notranslate"><span class="pre">jsondecode()</span></code>
+while octave users may prefer <code class="xref mat mat-func docutils literal notranslate"><span class="pre">loadjson()</span></code> from <code class="xref mat mat-func docutils literal notranslate"><span class="pre">jsonlab()</span></code>.
+data could also be a struct with encoding instructions which
+could be parsed HERE.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>data: raw MatLab/Octave object</dd>
+<dt>Returns:</dt>
+<dd>data_encoded: encoded raw matlab/octave objects</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.delete_order_r">
+<code class="descname">delete_order_r</code><span class="sig-paren">(</span><em>self</em>, <em>orderId</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.delete_order_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete purchase order by ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.delete_pet_r">
+<code class="descname">delete_pet_r</code><span class="sig-paren">(</span><em>self</em>, <em>petId</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.delete_pet_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a pet</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.delete_user_r">
+<code class="descname">delete_user_r</code><span class="sig-paren">(</span><em>self</em>, <em>username</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.delete_user_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete user</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.do_call">
+<code class="descname">do_call</code><span class="sig-paren">(</span><em>self</em>, <em>method</em>, <em>url</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.do_call" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute request do external function
+one central method to dispatched external request
+essentially wrapping <code class="xref mat mat-func docutils literal notranslate"><span class="pre">urlread2()</span></code>. but could be
+replaced.</p>
+<p>Depending on the method, body will be 
+.. todo:: shouting for switch/case - seperate function</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.encode">
+<code class="descname">encode</code><span class="sig-paren">(</span><em>self</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>abstracted encoding point</p>
+<p>Mount your custom function. Focus here is on JSON.</p>
+<p>MatLab users may prefer the built in <code class="xref mat mat-func docutils literal notranslate"><span class="pre">jsonencode()</span></code>
+while octave users may prefer <code class="xref mat mat-func docutils literal notranslate"><span class="pre">jsonsave()</span></code> from <code class="xref mat mat-func docutils literal notranslate"><span class="pre">jsonlab()</span></code>.
+data could also be a struct with encoding instructions which
+could be parsed HERE.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>data: raw matlab/octave objects</dd>
+<dt>Returns:</dt>
+<dd>data_encoded: encoded raw matlab/octave objects</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.get_find_pets_by_status_r">
+<code class="descname">get_find_pets_by_status_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.get_find_pets_by_status_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds Pets by status</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.get_find_pets_by_tags_r">
+<code class="descname">get_find_pets_by_tags_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.get_find_pets_by_tags_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds Pets by tags</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.get_inventory_r">
+<code class="descname">get_inventory_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.get_inventory_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns pet inventories by status</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.get_login_user_r">
+<code class="descname">get_login_user_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.get_login_user_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs user into the system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.get_logout_user_r">
+<code class="descname">get_logout_user_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.get_logout_user_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs out current logged in user session</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.get_order_by_id_r">
+<code class="descname">get_order_by_id_r</code><span class="sig-paren">(</span><em>self</em>, <em>orderId</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.get_order_by_id_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find purchase order by ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.get_pet_by_id_r">
+<code class="descname">get_pet_by_id_r</code><span class="sig-paren">(</span><em>self</em>, <em>petId</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.get_pet_by_id_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find pet by ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.get_user_by_name_r">
+<code class="descname">get_user_by_name_r</code><span class="sig-paren">(</span><em>self</em>, <em>username</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.get_user_by_name_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user by user name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.is_it_time_to_refresh_the_token">
+<code class="descname">is_it_time_to_refresh_the_token</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.is_it_time_to_refresh_the_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>check whether <span class="xref std std-ref">LOGIN_TIMESTAMP</span> or <span class="xref std std-ref">REFRESH_TIMESTAMP</span>
+as surpassed a set duratation which would then require 
+additional action (i.e. re-login or token refreshment)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.login_with_api">
+<code class="descname">login_with_api</code><span class="sig-paren">(</span><em>self</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.login_with_api" title="Permalink to this definition">¶</a></dt>
+<dd><p>login with the target API and 
+save the resonse (JWT token) within a class property</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>data: login data, externally supplied as a struct</dt>
+<dd><div class="code matlab first last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;username&#39;</span><span class="p">;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.param_formatter">
+<code class="descname">param_formatter</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.param_formatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>return an URL-endoed ‘ready to attach’ querystring
+create a vector (n*2 x 1) from array (n x 2), if needed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.post_add_pet_r">
+<code class="descname">post_add_pet_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.post_add_pet_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new pet to the store</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.post_create_user_r">
+<code class="descname">post_create_user_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.post_create_user_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create user</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.post_place_order_r">
+<code class="descname">post_place_order_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.post_place_order_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Place an order for a pet</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.post_update_pet_with_form_r">
+<code class="descname">post_update_pet_with_form_r</code><span class="sig-paren">(</span><em>self</em>, <em>petId</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.post_update_pet_with_form_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates a pet in the store with form data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.post_upload_file_r">
+<code class="descname">post_upload_file_r</code><span class="sig-paren">(</span><em>self</em>, <em>petId</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.post_upload_file_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>uploads an image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.print_property_two">
+<code class="descname">print_property_two</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.print_property_two" title="Permalink to this definition">¶</a></dt>
+<dd><p>a default getter for a private property</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.property_two">
+<code class="descname">property_two</code><em class="property"> = None</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.property_two" title="Permalink to this definition">¶</a></dt>
+<dd><p>None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.put_update_pet_r">
+<code class="descname">put_update_pet_r</code><span class="sig-paren">(</span><em>self</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.put_update_pet_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update an existing pet</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.put_update_user_r">
+<code class="descname">put_update_user_r</code><span class="sig-paren">(</span><em>self</em>, <em>username</em>, <em>fields</em>, <em>body</em>, <em>headers</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.put_update_user_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updated user</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="swagccg.tests.TestPetStoreClient.refresh_the_login">
+<code class="descname">refresh_the_login</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.refresh_the_login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="swagccg.tests.TestPetStoreClient.search_url">
+<code class="descname">search_url</code><em class="property"> = &quot;'duckduckgo.com'&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.search_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>dummy property</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="swagccg.tests.TestPetStoreClient.timestamp">
+<em class="property">static </em><code class="descname">timestamp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>conveniniece method to return now() as a string</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="swagccg.tests.TestPetStoreClient.timestamp2num">
+<em class="property">static </em><code class="descname">timestamp2num</code><span class="sig-paren">(</span><em>dt</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.timestamp2num" title="Permalink to this definition">¶</a></dt>
+<dd><p>conveniniece method to parse a timestamp</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tests.html" class="btn btn-neutral float-right" title="Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="core_api.html" class="btn btn-neutral" title="swagccg core API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Erkan Demiralay.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2019',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

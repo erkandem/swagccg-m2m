@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Design &mdash; swagccg-m2m 2019 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> swagccg-m2m
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">swagccg_m2m</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#download-the-distribution">Download the distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_api.html">swagccg core API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_example.html">Example Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html#final-notes-on-tests">Final notes on Tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">swagccg-m2m</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Design</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/design.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="design">
+<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
+<p>MatLab doesn’t have to suck.
+Developers should be to create code within the language they are using.
+Full 100 % <code class="docutils literal notranslate"><span class="pre">schmatlab</span></code> + <code class="docutils literal notranslate"><span class="pre">X</span></code> .
++ <code class="docutils literal notranslate"><span class="pre">X</span></code> should be only affecting devs on this package rather than users of the package.
+The secret sauce <code class="docutils literal notranslate"><span class="pre">X</span></code> which is done better by third party tools is the <code class="docutils literal notranslate"><span class="pre">documentation</span></code></p>
+<p>Let me walk you through.</p>
+<div class="section" id="swagger-openapi-2-0">
+<h2>Swagger / OpenAPI 2.0<a class="headerlink" href="#swagger-openapi-2-0" title="Permalink to this headline">¶</a></h2>
+<p>OpenAPI is standard for web API design. There are others like GraphQL by facebook
+It emerged from Swagger which was ex post set to 2.0 of the OpenAPI
+Human friendly version of swagger is expressed in YAML. Because JSON parsing
+tools where more readily available I focused on the machine friendly JSON version.</p>
+<blockquote>
+<div><ul class="simple">
+<li>JSON is easier to validate</li>
+<li>but lacks the ability to set comments</li>
+</ul>
+</div></blockquote>
+<p>Don’t worry you can convert YAML to JSON and vice versa.</p>
+</div>
+<div class="section" id="the-client-class-template">
+<h2>The Client Class Template<a class="headerlink" href="#the-client-class-template" title="Permalink to this headline">¶</a></h2>
+<p>Core of any code generation tool are the templates.
+Currently, the static structure is read from an .m file.
+The advantage of using a <code class="docutils literal notranslate"><span class="pre">.m</span></code> file is that users could spot
+potential errors syntax checkers can access the code while you are writing it.</p>
+<p>The dynamic part is generated entirely from strings within subfunctions.</p>
+<p>The pieces are joined by mustache like token <code class="docutils literal notranslate"><span class="pre">%{{PartXYZ}}</span></code> within the template.
+The tokens will be replaced with the actual code.
+You might add your own tokens and queue in your rendering logic.</p>
+<p>Keep in mind that it is mustache-like but is not conforming</p>
+<div class="section" id="class-defintion">
+<h3>Class Defintion<a class="headerlink" href="#class-defintion" title="Permalink to this headline">¶</a></h3>
+<p>In MatLab the name of the class must match the filename.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">reflect filename[.m] == classname in logic</p>
+</div>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<p>public / private / static</p>
+</div>
+<div class="section" id="client-methods">
+<h3>Client Methods<a class="headerlink" href="#client-methods" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="request-dispatching">
+<h3>Request Dispatching<a class="headerlink" href="#request-dispatching" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="response-handling">
+<h3>Response Handling<a class="headerlink" href="#response-handling" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="models">
+<h3>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
+<p>ORM to create models are not included.
+The default assumption is that JSON is primary content.</p>
+</div>
+</div>
+<div class="section" id="client-usage">
+<h2>Client Usage<a class="headerlink" href="#client-usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="instantiate-it">
+<h3>Instantiate it<a class="headerlink" href="#instantiate-it" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="call-a-resource">
+<h3>Call a Resource<a class="headerlink" href="#call-a-resource" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="handle-the-response">
+<h3>Handle the Response<a class="headerlink" href="#handle-the-response" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Erkan Demiralay.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2019',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
