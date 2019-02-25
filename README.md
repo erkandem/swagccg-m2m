@@ -135,7 +135,7 @@ Mark Masse, REST API Design Rulebook - Designing Consistent RESTful Web Service 
 
 ``Source``: [github.com/erkandem/swagccg-m2m](https://github.com/erkandem/swagccg-m2m/)
 
-``Documentation``: [erkandem/github.io/swagccg-m2m](https://erkandem.github.io/swagccg_m2m)
+``Documentation``: [erkandem/github.io/swagccg-m2m](https://erkandem.github.io/swagccg-m2m)
 
 
 ## License
