@@ -39,7 +39,8 @@ classdef client_template_swagccg_m2m < handle %{{classname}}
     %   
     methods (Static)
         function self = iVolClient(deployment) %{{constructor_def}}
-        %% ClassConstructor equivalent of __init__ 
+        %% ClassConstructor equivalent of __init__
+        %
         % .. todo:: almost everything here should be configured during client creation
         %
         %
@@ -139,7 +140,7 @@ classdef client_template_swagccg_m2m < handle %{{classname}}
         
 
         function r = is_it_time_to_refresh_the_token(self) 
-            %% check whether :ref:`LOGIN_TIMESTAMP` or :ref:`REFRESH_TIMESTAMP`
+            %% check whether ``LOGIN_TIMESTAMP`` or ``REFRESH_TIMESTAMP``
             % as surpassed a set duratation which would then require 
             % additional action (i.e. re-login or token refreshment)
             %

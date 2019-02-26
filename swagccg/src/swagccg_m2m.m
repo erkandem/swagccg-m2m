@@ -4,8 +4,8 @@ function swagccg_m2m(confi_path)
     % Args:
     %    confi_path: optional path to a configuration json file :ref:`confi.json`
     %
-    % .. todo: be more granular on the used templates(i.e. addpath(), login()
-    %          .. code: matlab
+    % .. todo:: be more granular on the used templates(i.e. addpath(), login()
+    %          .. code:: matlab
     %       
     %             % i.e.
     %             client_imports = client_imports_f();

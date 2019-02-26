@@ -76,7 +76,8 @@ char array (string) to such a json
 
 Below is an example.
 
-**confi.json**
+confi.json
+^^^^^^^^^^
 
 .. code:: json
 
@@ -159,7 +160,7 @@ Contact
 `github.com/erkandem/swagccg-m2m <https://github.com/erkandem/swagccg-m2m/>`__
 
 ``Documentation``:
-`erkandem/github.io/swagccg-m2m <https://erkandem.github.io/swagccg_m2m>`__
+`erkandem/github.io/swagccg-m2m <https://erkandem.github.io/swagccg-m2m>`__
 
 License
 -------

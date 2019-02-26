@@ -64,7 +64,7 @@ swagccg_m2m('abs/or/relative/path/to/your/jsonfile.json')
 ```
 Below is an example.
 
-**confi.json**
+#### confi.json
 
 ```JSON
 {
