@@ -11,7 +11,9 @@ Welcome to swagccg-m2m's documentation!
    :caption: Contents:
 
    README
-   core_api
+   design
+   specifications
+   api
    client_example
    tests
 

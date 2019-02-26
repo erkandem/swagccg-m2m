@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>swagccg core API &mdash; swagccg-m2m 2019 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Example Client" href="client_example.html" />
+    <link rel="prev" title="Specifications" href="specifications.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> swagccg-m2m
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">swagccg_m2m</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">swagccg core API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#entry-point">Entry Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#template">Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#io">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilities">utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#handling-swagger-json">handling <code class="docutils literal notranslate"><span class="pre">Swagger.json</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#developement">Developement</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="client_example.html">Example Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html#final-notes-on-tests">Final notes on Tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">swagccg-m2m</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>swagccg core API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="swagccg-core-api">
+<h1><a class="toc-backref" href="#id1">swagccg core API</a><a class="headerlink" href="#swagccg-core-api" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#swagccg-core-api" id="id1">swagccg core API</a><ul>
+<li><a class="reference internal" href="#entry-point" id="id2">Entry Point</a></li>
+<li><a class="reference internal" href="#template" id="id3">Template</a></li>
+<li><a class="reference internal" href="#io" id="id4">IO</a></li>
+<li><a class="reference internal" href="#utilities" id="id5">utilities</a></li>
+<li><a class="reference internal" href="#handling-swagger-json" id="id6">handling <code class="docutils literal notranslate"><span class="pre">Swagger.json</span></code></a></li>
+<li><a class="reference internal" href="#developement" id="id7">Developement</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="entry-point">
+<h2><a class="toc-backref" href="#id2">Entry Point</a><a class="headerlink" href="#entry-point" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="swagccg.src.swagccg_m2m">
+<code class="descclassname">swagccg.src.</code><code class="descname">swagccg_m2m</code><span class="sig-paren">(</span><em>confi_path</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.swagccg_m2m" title="Permalink to this definition">¶</a></dt>
+<dd><p>renders <code class="docutils literal notranslate"><span class="pre">swagger.json</span></code> and <code class="docutils literal notranslate"><span class="pre">confi.json</span></code> to a client</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>confi_path: optional path to a configuration json file <a class="reference internal" href="README.html#confi-json"><span class="std std-ref">confi.json</span></a></dd>
+</dl>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p>be more granular on the used templates(i.e. addpath(), login()
+.. code:: matlab</p>
+<blockquote class="last">
+<div>% i.e.
+client_imports = client_imports_f();
+client_point_of_execution = client_point_of_execution_f();</div></blockquote>
+</div>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">complete packaging</p>
+</div>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">setup script</p>
+</div>
+<div class="admonition-todo admonition" id="index-3">
+<p class="first admonition-title">Todo</p>
+<p class="last">client setup script</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="template">
+<h2><a class="toc-backref" href="#id3">Template</a><a class="headerlink" href="#template" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="swagccg.src.client_imports_f">
+<code class="descclassname">swagccg.src.</code><code class="descname">client_imports_f</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.client_imports_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.render_constructor_f">
+<code class="descclassname">swagccg.src.</code><code class="descname">render_constructor_f</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.render_constructor_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.client_point_of_execution_f">
+<code class="descclassname">swagccg.src.</code><code class="descname">client_point_of_execution_f</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.client_point_of_execution_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.create_methods_code_f">
+<code class="descclassname">swagccg.src.</code><code class="descname">create_methods_code_f</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.create_methods_code_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.client_method_template_f">
+<code class="descclassname">swagccg.src.</code><code class="descname">client_method_template_f</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.client_method_template_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="io">
+<h2><a class="toc-backref" href="#id4">IO</a><a class="headerlink" href="#io" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="swagccg.src.utf8_write_to_file_f">
+<code class="descclassname">swagccg.src.</code><code class="descname">utf8_write_to_file_f</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.utf8_write_to_file_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.save_fread_f">
+<code class="descclassname">swagccg.src.</code><code class="descname">save_fread_f</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.save_fread_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.read_in_template_f">
+<code class="descclassname">swagccg.src.</code><code class="descname">read_in_template_f</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.read_in_template_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="utilities">
+<h2><a class="toc-backref" href="#id5">utilities</a><a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="swagccg.src.timestamp">
+<code class="descclassname">swagccg.src.</code><code class="descname">timestamp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.convert_to_snake_case_f">
+<code class="descclassname">swagccg.src.</code><code class="descname">convert_to_snake_case_f</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.convert_to_snake_case_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.mustache_scanner_f">
+<code class="descclassname">swagccg.src.</code><code class="descname">mustache_scanner_f</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.mustache_scanner_f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="handling-swagger-json">
+<h2><a class="toc-backref" href="#id6">handling <code class="docutils literal notranslate"><span class="pre">Swagger.json</span></code></a><a class="headerlink" href="#handling-swagger-json" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="swagccg.src.modify_swagger">
+<code class="descclassname">swagccg.src.</code><code class="descname">modify_swagger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.modify_swagger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.loadjson_mod">
+<code class="descclassname">swagccg.src.</code><code class="descname">loadjson_mod</code><span class="sig-paren">(</span><em>fname</em>, <em>varargin</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.loadjson_mod" title="Permalink to this definition">¶</a></dt>
+<dd><p>parse a JSON (JavaScript Object Notation) file or string, modified
+to adjust and parse swagger API definition in a MatLab compatible
+way. Plese note that this function and there subfunction are not
+tested to work on non swagger files (i.e. not backwards compatible).
+Modified by Erkan Demiralay 2018/12/06</p>
+<dl class="docutils">
+<dt>Call Signatures:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">loadjson(fname,</span> <span class="pre">opt)</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">loadjson(fname,</span> <span class="pre">'param1',</span> <span class="pre">value1,</span> <span class="pre">'param2',</span> <span class="pre">value2,</span> <span class="pre">...)</span></code></li>
+</ul>
+</dd>
+<dt>Authors:</dt>
+<dd><ul class="first last simple">
+<li><dl class="first docutils">
+<dt>Qianqian Fang (q.fang &lt;at&gt; neu.edu)</dt>
+<dd><ul class="first last">
+<li>created on 2011/09/09</li>
+<li><a class="reference external" href="http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab">http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Nedialko Krouchev:</dt>
+<dd><ul class="first last">
+<li>created on 2009/11/02</li>
+<li><a class="reference external" href="http://www.mathworks.com/matlabcentral/fileexchange/25713">http://www.mathworks.com/matlabcentral/fileexchange/25713</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>François Glineur:</dt>
+<dd><ul class="first last">
+<li>created on  2009/03/22</li>
+<li><a class="reference external" href="http://www.mathworks.com/matlabcentral/fileexchange/23393">http://www.mathworks.com/matlabcentral/fileexchange/23393</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Joel Feenstra:</dt>
+<dd><ul class="first last">
+<li>created on 2008/07/03</li>
+<li><a class="reference external" href="http://www.mathworks.com/matlabcentral/fileexchange/20565">http://www.mathworks.com/matlabcentral/fileexchange/20565</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>fname: input file name, if fname contains “{}” or “[]”, fname</dt>
+<dd>will be interpreted as a JSON string</dd>
+<dt>opt: a struct to store parsing options, opt can be replaced by</dt>
+<dd><p class="first">a list of (‘param’,value) pairs - the param string is equivallent
+to a field in opt. opt can have the following
+fields (first in [.|.] is the default)</p>
+<dl class="last docutils">
+<dt>opt.SimplifyCell [0|1]: <code class="docutils literal notranslate"><span class="pre">1</span></code>, loadjson will call cell2mat</dt>
+<dd>for each element of the JSON data, and group
+arrays based on the cell2mat rules.</dd>
+<dt>opt.FastArrayParser [1|0|int]: <code class="docutils literal notranslate"><span class="pre">1</span></code> use a speed-optimized array parser when loading an</dt>
+<dd><blockquote class="first">
+<div><p>array object. The fast array parser may
+collapse block arrays into a single large
+array similar to rules defined in cell2mat;</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code> to use a legacy parser;</p>
+<p>if set to a larger-than-1 value,
+this option will specify the minimum
+dimension to enable the fast array parser.
+For example, if the input is a 3D array, setting
+FastArrayParser to 1 will return a 3D array;</p>
+<p><code class="docutils literal notranslate"><span class="pre">2</span></code> will return a cell array of 2D arrays;</p>
+<p><code class="docutils literal notranslate"><span class="pre">3</span></code> will return to a 2D cell array of 1D vectors;</p>
+<p><code class="docutils literal notranslate"><span class="pre">4</span></code> will return a 3D cell array.</p>
+</div></blockquote>
+<p class="last">opt.ShowProgress [0|1]: if set to <code class="docutils literal notranslate"><span class="pre">1</span></code>, loadjson displays a progress bar.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Output:</dt>
+<dd><dl class="first last docutils">
+<dt>dat: a cell array, where {…} blocks are converted into cell arrays,</dt>
+<dd>and […] are converted to arrays</dd>
+</dl>
+</dd>
+<dt>Examples:</dt>
+<dd>dat = loadjson(‘{“obj”:{“string”:”value”,”array”:[1,2,3]}}’)
+dat = loadjson([‘examples’ filesep ‘example1.json’])
+dat = loadjson([‘examples’ filesep ‘example1.json’],’SimplifyCell’,1)</dd>
+<dt>License:</dt>
+<dd>BSD License, see LICENSE files for details</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="developement">
+<h2><a class="toc-backref" href="#id7">Developement</a><a class="headerlink" href="#developement" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="swagccg.swagccg_m2m__init__">
+<code class="descclassname">swagccg.</code><code class="descname">swagccg_m2m__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.swagccg_m2m__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Primary usage of <code class="docutils literal notranslate"><span class="pre">swagccg_m2m__init__.m</span></code> to identify the installation path.
+Later on this could act as storage for machine readable meta data (i.e. version, contact, docs).</p>
+<dl class="function">
+<dt id="swagccg.src.swagccg_m2m_package">
+<code class="descclassname">swagccg.src.</code><code class="descname">swagccg_m2m_package</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.swagccg_m2m_package" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.swagccg_m2m_setup">
+<code class="descclassname">swagccg.src.</code><code class="descname">swagccg_m2m_setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.swagccg_m2m_setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.swagccg_m2m_uninstall">
+<code class="descclassname">swagccg.src.</code><code class="descname">swagccg_m2m_uninstall</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.swagccg_m2m_uninstall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.a">
+<code class="descclassname">swagccg.src.</code><code class="descname">a</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.a" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="swagccg.src.d">
+<code class="descclassname">swagccg.src.</code><code class="descname">d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.src.d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="client_example.html" class="btn btn-neutral float-right" title="Example Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="specifications.html" class="btn btn-neutral" title="Specifications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Erkan Demiralay.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2019',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

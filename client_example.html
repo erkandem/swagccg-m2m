@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tests" href="tests.html" />
-    <link rel="prev" title="swagccg core API" href="core_api.html" /> 
+    <link rel="prev" title="swagccg core API" href="api.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -81,7 +81,9 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">swagccg_m2m</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core_api.html">swagccg core API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">swagccg core API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Example Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html#final-notes-on-tests">Final notes on Tests</a></li>
@@ -153,7 +155,7 @@
 <h1>Example Client<a class="headerlink" href="#example-client" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="swagccg.tests.TestPetStoreClient">
-<em class="property">class </em><code class="descclassname">swagccg.tests.</code><code class="descname">TestPetStoreClient</code><a class="headerlink" href="#swagccg.tests.TestPetStoreClient" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">swagccg.tests.</code><code class="descname">TestPetStoreClient</code><span class="sig-paren">(</span><em>deployment</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Summary of this class goes here
 Detailed explanation goes here</p>
 <dl class="attribute">
@@ -258,13 +260,6 @@ Detailed explanation goes here</p>
 <dd><p>None</p>
 </dd></dl>
 
-<dl class="staticmethod">
-<dt id="swagccg.tests.TestPetStoreClient.PetStoreClient">
-<em class="property">static </em><code class="descname">PetStoreClient</code><span class="sig-paren">(</span><em>deployment</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.PetStoreClient" title="Permalink to this definition">¶</a></dt>
-<dd><p>ClassConstructor equivalent of __init__ 
-.. todo:: almost everything here should be configured during client creation</p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="swagccg.tests.TestPetStoreClient.REFRESH_KEY">
 <code class="descname">REFRESH_KEY</code><em class="property"> = &quot;'token'&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.REFRESH_KEY" title="Permalink to this definition">¶</a></dt>
@@ -275,6 +270,16 @@ Detailed explanation goes here</p>
 <dt id="swagccg.tests.TestPetStoreClient.REFRESH_TIMESTAMP">
 <code class="descname">REFRESH_TIMESTAMP</code><em class="property"> = &quot;''&quot;</em><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.REFRESH_TIMESTAMP" title="Permalink to this definition">¶</a></dt>
 <dd><p>None</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="swagccg.tests.TestPetStoreClient.TestPetStoreClient">
+<em class="property">static </em><code class="descname">TestPetStoreClient</code><span class="sig-paren">(</span><em>deployment</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.TestPetStoreClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>ClassConstructor equivalent of __init__</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">almost everything here should be configured during client creation</p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -403,7 +408,7 @@ could be parsed HERE.</p>
 <dl class="method">
 <dt id="swagccg.tests.TestPetStoreClient.is_it_time_to_refresh_the_token">
 <code class="descname">is_it_time_to_refresh_the_token</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.TestPetStoreClient.is_it_time_to_refresh_the_token" title="Permalink to this definition">¶</a></dt>
-<dd><p>check whether <span class="xref std std-ref">LOGIN_TIMESTAMP</span> or <span class="xref std std-ref">REFRESH_TIMESTAMP</span>
+<dd><p>check whether <code class="docutils literal notranslate"><span class="pre">LOGIN_TIMESTAMP</span></code> or <code class="docutils literal notranslate"><span class="pre">REFRESH_TIMESTAMP</span></code>
 as surpassed a set duratation which would then require 
 additional action (i.e. re-login or token refreshment)</p>
 </dd></dl>
@@ -526,7 +531,7 @@ create a vector (n*2 x 1) from array (n x 2), if needed</p>
         <a href="tests.html" class="btn btn-neutral float-right" title="Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="core_api.html" class="btn btn-neutral" title="swagccg core API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral" title="swagccg core API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

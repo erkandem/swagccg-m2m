@@ -27,7 +27,9 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Specifications" href="specifications.html" />
+    <link rel="prev" title="swagccg_m2m" href="README.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -77,10 +79,22 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">swagccg_m2m</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README.html#download-the-distribution">Download the distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core_api.html">swagccg core API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#swagger-openapi-2-0">Swagger / OpenAPI 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-client-class-template">The Client Class Template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#client-class-definition">Client Class Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#point-of-execution-poe">Point of Execution - POE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-handling">Response Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#models">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client-class-methods">Client Class Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">swagccg core API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="client_example.html">Example Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html#final-notes-on-tests">Final notes on Tests</a></li>
@@ -150,12 +164,11 @@
             
   <div class="section" id="design">
 <h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
-<p>MatLab doesn’t have to suck.
-Developers should be to create code within the language they are using.
-Full 100 % <code class="docutils literal notranslate"><span class="pre">schmatlab</span></code> + <code class="docutils literal notranslate"><span class="pre">X</span></code> .
-+ <code class="docutils literal notranslate"><span class="pre">X</span></code> should be only affecting devs on this package rather than users of the package.
-The secret sauce <code class="docutils literal notranslate"><span class="pre">X</span></code> which is done better by third party tools is the <code class="docutils literal notranslate"><span class="pre">documentation</span></code></p>
-<p>Let me walk you through.</p>
+<p>Developers should be able to create code within the language they are using.
+The tool was originally design to cover only GET requests with
+a possibility for a  query string. The response was (and is) assumed to be
+<code class="docutils literal notranslate"><span class="pre">JSON</span> <span class="pre">only</span></code>. But since the outwards facing parts are located in <code class="xref mat mat-func docutils literal notranslate"><span class="pre">_do_call()</span></code>,
+<code class="xref mat mat-func docutils literal notranslate"><span class="pre">_encode()</span></code> and <code class="xref mat mat-func docutils literal notranslate"><span class="pre">_decode()</span></code> it’s easy to add your logic.</p>
 <div class="section" id="swagger-openapi-2-0">
 <h2>Swagger / OpenAPI 2.0<a class="headerlink" href="#swagger-openapi-2-0" title="Permalink to this headline">¶</a></h2>
 <p>OpenAPI is standard for web API design. There are others like GraphQL by facebook
@@ -181,43 +194,56 @@ potential errors syntax checkers can access the code while you are writing it.</
 The tokens will be replaced with the actual code.
 You might add your own tokens and queue in your rendering logic.</p>
 <p>Keep in mind that it is mustache-like but is not conforming</p>
-<div class="section" id="class-defintion">
-<h3>Class Defintion<a class="headerlink" href="#class-defintion" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="client-class-definition">
+<h3>Client Class Definition<a class="headerlink" href="#client-class-definition" title="Permalink to this headline">¶</a></h3>
 <p>In MatLab the name of the class must match the filename.</p>
+<p>Drop in the desired class name here.
+Class and class-instance properties can be placed here.</p>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
 <p class="last">reflect filename[.m] == classname in logic</p>
 </div>
 </div>
-<div class="section" id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
-<p>public / private / static</p>
-</div>
-<div class="section" id="client-methods">
-<h3>Client Methods<a class="headerlink" href="#client-methods" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="request-dispatching">
-<h3>Request Dispatching<a class="headerlink" href="#request-dispatching" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="point-of-execution-poe">
+<h3>Point of Execution - POE<a class="headerlink" href="#point-of-execution-poe" title="Permalink to this headline">¶</a></h3>
+<p>Well not really, since the POE only dispatches it to an external component.
+Drop in your preferred way.</p>
 </div>
 <div class="section" id="response-handling">
 <h3>Response Handling<a class="headerlink" href="#response-handling" title="Permalink to this headline">¶</a></h3>
+<p>By default, any request  body will be encoded to JSON and than UINT8.
+Any response body will be decoded assuming JSON content.</p>
+<p>One exception is if you want to encode <code class="docutils literal notranslate"><span class="pre">formData</span></code>.
+This is not handled on the client class level yet.
+See <a class="reference internal" href="specifications.html#specifications"><span class="std std-ref">Specifications</span></a> for details.</p>
 </div>
 <div class="section" id="models">
 <h3>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
 <p>ORM to create models are not included.
 The default assumption is that JSON is primary content.</p>
 </div>
-</div>
-<div class="section" id="client-usage">
-<h2>Client Usage<a class="headerlink" href="#client-usage" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="instantiate-it">
-<h3>Instantiate it<a class="headerlink" href="#instantiate-it" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="call-a-resource">
-<h3>Call a Resource<a class="headerlink" href="#call-a-resource" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="handle-the-response">
-<h3>Handle the Response<a class="headerlink" href="#handle-the-response" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="client-class-methods">
+<h3>Client Class Methods<a class="headerlink" href="#client-class-methods" title="Permalink to this headline">¶</a></h3>
+<p>Each <strong>http-method</strong> will be rendered to one <strong>client-class-method</strong>
+The name for the client-class-method  is derived from the <code class="docutils literal notranslate"><span class="pre">operationId</span></code>
+within swagger. The actual name of the client-class-method will be
+http-method + the OperationId + <code class="docutils literal notranslate"><span class="pre">_r</span></code>.</p>
+<p>Each http-method has an operationId which may or may not include the http-method name.
+If doesn’t it will be attached.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li>A <code class="docutils literal notranslate"><span class="pre">GET</span></code> http-method on a <code class="docutils literal notranslate"><span class="pre">getRessource</span></code> OperationId would render to
+<code class="docutils literal notranslate"><span class="pre">get_ressource_r</span></code></li>
+<li>A <code class="docutils literal notranslate"><span class="pre">GET</span></code> http-method on a <code class="docutils literal notranslate"><span class="pre">Ressource</span></code> OperationId would also render to
+<code class="docutils literal notranslate"><span class="pre">get_ressource_r</span></code></li>
+</ul>
+<p>Weak Point:</p>
+<ul class="simple">
+<li>A <code class="docutils literal notranslate"><span class="pre">POST</span></code> http-method on a <code class="docutils literal notranslate"><span class="pre">getRessource</span></code> OperationId would render to
+<code class="docutils literal notranslate"><span class="pre">get_ressource_r</span></code> because a</li>
+</ul>
+<p>The parsing logic can be found within <code class="xref mat mat-func docutils literal notranslate"><span class="pre">create_methods_code_f()</span></code></p>
+<p>The client-class-method rendering logic is placed <code class="xref mat mat-func docutils literal notranslate"><span class="pre">src.client_template.create_methods_code_f()</span></code></p>
 </div>
 </div>
 </div>
@@ -227,6 +253,15 @@ The default assumption is that JSON is primary content.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="specifications.html" class="btn btn-neutral float-right" title="Specifications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="README.html" class="btn btn-neutral" title="swagccg_m2m" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

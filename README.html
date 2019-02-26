@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="swagccg core API" href="core_api.html" />
+    <link rel="next" title="Design" href="design.html" />
     <link rel="prev" title="Welcome to swagccg-m2m’s documentation!" href="index.html" /> 
 
   
@@ -84,7 +84,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#a-client-code-generation">a) Client Code Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-client-code-generation">a) Client Code Generation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#confi-json">confi.json</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#b-client-code-usage">b) Client Code Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#a-word-on-json-in-matlab">a Word on JSON in MatLab</a></li>
 </ul>
@@ -97,7 +100,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#click-bait">Click Bait</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="core_api.html">swagccg core API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">swagccg core API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="client_example.html">Example Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html#final-notes-on-tests">Final notes on Tests</a></li>
@@ -227,7 +232,8 @@ char array (string) to such a json</p>
 </pre></div>
 </div>
 <p>Below is an example.</p>
-<p><strong>confi.json</strong></p>
+<div class="section" id="confi-json">
+<h4>confi.json<a class="headerlink" href="#confi-json" title="Permalink to this headline">¶</a></h4>
 <div class="code json highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;swagger_path&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/Users/Abuser/your_project/swagger.json&quot;</span><span class="p">,</span>
   <span class="s2">&quot;target_path&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/Users/Abuser/your_project/MyApiClient.m&quot;</span><span class="p">,</span>
@@ -242,6 +248,7 @@ char array (string) to such a json</p>
   <span class="s2">&quot;api_protocol_remote&quot;</span><span class="p">:</span> <span class="s2">&quot;https&quot;</span>
 <span class="p">}</span>
 </pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="b-client-code-usage">
@@ -298,7 +305,7 @@ Specififcation</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">Source</span></code>:
 <a class="reference external" href="https://github.com/erkandem/swagccg-m2m/">github.com/erkandem/swagccg-m2m</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">Documentation</span></code>:
-<a class="reference external" href="https://erkandem.github.io/swagccg_m2m">erkandem/github.io/swagccg-m2m</a></p>
+<a class="reference external" href="https://erkandem.github.io/swagccg-m2m">erkandem/github.io/swagccg-m2m</a></p>
 </div>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
@@ -331,7 +338,7 @@ Generator</a></p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="core_api.html" class="btn btn-neutral float-right" title="swagccg core API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="design.html" class="btn btn-neutral float-right" title="Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Welcome to swagccg-m2m’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

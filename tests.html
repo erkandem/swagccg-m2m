@@ -80,7 +80,9 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">swagccg_m2m</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core_api.html">swagccg core API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">swagccg core API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="client_example.html">Example Client</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#final-notes-on-tests">Final notes on Tests</a></li>
@@ -158,16 +160,19 @@ client functionality against the perstore API.</p>
 <dt id="swagccg.tests.test_petstore_play_book">
 <code class="descclassname">swagccg.tests.</code><code class="descname">test_petstore_play_book</code><span class="sig-paren">(</span><em>confi_path</em><span class="sig-paren">)</span><a class="headerlink" href="#swagccg.tests.test_petstore_play_book" title="Permalink to this definition">¶</a></dt>
 <dd><p>wrapper around the core logic
-which currently consists of 5 (6) tests:</p>
+which currently consists of 8 tests:
+%will be updated / refactored</p>
 <blockquote>
 <div><ol class="arabic simple" start="0">
 <li>client creation</li>
-<li>post with body</li>
-<li>put with body</li>
-<li>get with query string</li>
-<li>post with path parameter and query string</li>
-<li>delete with path param and query string</li>
+<li>post with UINT8 body</li>
 </ol>
+<p>2. put with body
+2 1/2. post with form data
+3. get with query string
+3 1/2. post with form data
+4. get with query string
+5. delete with path param and query string</p>
 </div></blockquote>
 <dl class="docutils">
 <dt>Gotchas:</dt>
