@@ -10,10 +10,8 @@
 Immediately testing new resources is important if resources are going to be 
 co-dependent. While the tools at SwaggerHub are mind blowing 
 they may represent an overkill for *not yet production* code.
-Typing a single query can be done in any browser or with tools like curl.
-This tool aims to place itself between those two categories.
-
-On top of that, I would expect a programming language to be able to create its own tools. While Java is  a mature and well established language, it might not be within the proficiency portfolio of each and everyone.
+Typing a single query can be done in any browser or with tools like ``curl``.
+This tool aims to place itself between those two extreme categories. 
 
 ## Installation
 
@@ -92,7 +90,7 @@ on the client code after generating the client code. Specifically, everything ar
 Have a look at the pet store example and test in the tests folder.
 
 
-Now, you or your end users could access the API via
+Now, after you've polished up the code, you or your end users could access the API via
 ```matlab
 credentials.('username') = 'username';
 credentials.('password') = 'youd_never_guess_that'
@@ -116,16 +114,24 @@ Therefore a version of ``loadjson`` from ``jsonlab`` was modified to  overcome t
 - little to none ``HTTP status codes`` parsing
 - assumes knowledge on HTTP HEADER, BODY, METHODs
 
-## recommended reading
+## Further Reading
+
+[Project Documentation](https://erkandem.github.io/swagccg-m2m)
 
 Mark Masse, REST API Design Rulebook - Designing Consistent RESTful Web Service Interfaces
 
-[Petstore - API](http://petstore.swagger.io)
+[Petstore API - An Open Source Example](http://petstore.swagger.io)
 
 [OpenAPI Specififcation](https://github.com/OAI/OpenAPI-Specification)
 
+If you want to go for the full swagger codegen way there have a look at this: 
 [Open-MBEE/swagger-codegen-matlab-client](https://github.com/Open-MBEE/swagger-codegen-matlab-client)
 
+[Create Read Update Delete - CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+
+[Overview of RESTful API Description_Languages](https://en.wikipedia.org/wiki/Overview_of_RESTful_API_Description_Languages)
+
+[HTTP methods summary table](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Summary_table)
 
 ## Contact
 
@@ -135,7 +141,7 @@ Mark Masse, REST API Design Rulebook - Designing Consistent RESTful Web Service 
 
 ``Source``: [github.com/erkandem/swagccg-m2m](https://github.com/erkandem/swagccg-m2m/)
 
-``Documentation``: [erkandem/github.io/swagccg-m2m](https://erkandem.github.io/swagccg-m2m)
+``Documentation``: [erkandem.github.io/swagccg-m2m](https://erkandem.github.io/swagccg-m2m)
 
 
 ## License
@@ -151,10 +157,10 @@ This project is dependent on code by:
 
 ## Client Code License
 Show some love and leave a project link.
-
+That's all I ask for.
 
 ## Click Bait
 
 Visitors who were interested in this repo also took a look at:
-[swagccg-py2py - Python to Python Client Code Generator](https://github.com/erkandem/swagccg_py2py)
+[swagccg-py2py - Python to Python Client Code Generator](https://github.com/erkandem/swagccg-py2py)
 
