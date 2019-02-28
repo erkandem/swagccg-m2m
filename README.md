@@ -156,5 +156,5 @@ Show some love and leave a project link.
 ## Click Bait
 
 Visitors who were interested in this repo also took a look at:
-[swagccg-py2py - Python to Python Client Code Generator](https://github.com/erkandem/swagccg_py2py)
+[swagccg-py2py - Python to Python Client Code Generator](https://github.com/erkandem/swagccg-py2py)
 
