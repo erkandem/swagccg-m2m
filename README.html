@@ -82,18 +82,24 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">swagccg_m2m</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#a-client-code-generation">a) Client Code Generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-the-user-distribution">1. Download the User Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mpm">2. MPM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git-clone">3. git clone</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#client-code-generation">Client Code Generation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#confi-json">confi.json</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#b-client-code-usage">b) Client Code Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client-code-usage">Client Code Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#a-word-on-json-in-matlab">a Word on JSON in MatLab</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#finally">Finally</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gotchas">gotchas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#recommended-reading">recommended reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#further-reading">Further Reading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#contact">Contact</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#client-code-license">Client Code License</a></li>
@@ -173,97 +179,113 @@
   <p><img alt="image0" src="https://img.shields.io/badge/License-BSD-green.svg" /></p>
 <div class="section" id="swagccg-m2m">
 <h1>swagccg_m2m<a class="headerlink" href="#swagccg-m2m" title="Permalink to this headline">¶</a></h1>
-<p><em>100% MatLab only client code generator for swagger (OpenAPI 2.0). Using
+<p><em>MatLab only client code generator for swagger (OpenAPI 2.0). Using
 MatLab. For MatLab</em></p>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>Immediately testing new resources is important if resources are going to
 be co-dependent. While the tools at SwaggerHub are mind blowing they may
 represent an overkill for <em>not yet production</em> code. Typing a single
-query can be done in any browser or with tools like curl. This tool aims
-to place itself between those two categories.</p>
-<p>On top of that, I would expect a programming language to be able to
-create its own tools. While Java is a mature and well established
-language, it might not be within the proficiency portfolio of each and
-everyone.</p>
+query can be done in any browser or with tools like <code class="docutils literal notranslate"><span class="pre">curl</span></code>. This tool
+aims to place itself between those two extreme categories.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>GitHub</li>
-</ol>
+<div class="section" id="download-the-user-distribution">
+<h3>1. Download the User Distribution<a class="headerlink" href="#download-the-user-distribution" title="Permalink to this headline">¶</a></h3>
 <p>Releases are published on GitHub and mirrored on the file-exchange. If
-you have trouble related to <code class="docutils literal notranslate"><span class="pre">newline</span></code> try a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code></p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">erkandem</span><span class="o">/</span><span class="n">swagccg</span><span class="o">-</span><span class="n">m2m</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">latest</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
-<li>MPM</li>
+you have trouble related to <code class="docutils literal notranslate"><span class="pre">newline</span></code> try a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>.</p>
+<p>I. Download the user distribution from GitHub
+<code class="docutils literal notranslate"><span class="pre">https://github.com/erkandem/swagccg-m2m/releases/latest</span></code></p>
+<ol class="upperroman simple" start="2">
+<li>Unzip it</li>
+<li>Run the <code class="docutils literal notranslate"><span class="pre">swagccg_m2m_setup</span></code>. It will put static files like the
+template, the creation script and a zip file with client
+dependencies in location of your choice and add them to search
+path.</li>
 </ol>
+</div>
+<div class="section" id="mpm">
+<h3>2. MPM<a class="headerlink" href="#mpm" title="Permalink to this headline">¶</a></h3>
 <p>🚨 <strong>not yet</strong></p>
 <div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpm</span> <span class="n">install</span> <span class="n">swagccg</span><span class="o">-</span><span class="n">m2m</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="http://mobeets.github.io/mpm/">Simple MATLAB package management inspired by
 pip</a></p>
-<ol class="arabic simple" start="3">
-<li>git clone</li>
+</div>
+<div class="section" id="git-clone">
+<h3>3. git clone<a class="headerlink" href="#git-clone" title="Permalink to this headline">¶</a></h3>
+<ol class="upperroman simple">
+<li>Clone it.</li>
 </ol>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">erkandem</span><span class="o">/</span><span class="n">swagccg</span><span class="o">-</span><span class="n">m2m</span><span class="o">.</span><span class="n">git</span> <span class="n">swagccg</span><span class="o">-</span><span class="n">m2m</span>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">erkandem</span><span class="o">/</span><span class="n">swagccg</span><span class="o">-</span><span class="n">m2m</span><span class="o">.</span><span class="n">git</span> <span class="n">tmpdir</span>
 </pre></div>
 </div>
+<ol class="upperroman simple" start="2">
+<li>create a user distribution <code class="docutils literal notranslate"><span class="pre">swagccg_m2m_package</span></code></li>
+<li>change to <code class="docutils literal notranslate"><span class="pre">../packages</span></code></li>
+<li>follow the steps 1.II</li>
+</ol>
 <p>The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> way is rather for developers of this repo.
 Nonetheless, running <code class="docutils literal notranslate"><span class="pre">swagccg_m2m_package</span></code> after cloning will package
-a <code class="docutils literal notranslate"><span class="pre">user</span> <span class="pre">version</span></code> Currently, all dependencies are included in a .zip
+a <code class="docutils literal notranslate"><span class="pre">user</span> <span class="pre">version</span></code>. Currently, all dependencies are included in a .zip
 file.</p>
 </div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="a-client-code-generation">
-<h3>a) Client Code Generation<a class="headerlink" href="#a-client-code-generation" title="Permalink to this headline">¶</a></h3>
-<p>Fresh clients can be generated as easy as:</p>
-<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swagccg_m2m</span>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="client-code-generation">
+<h3>Client Code Generation<a class="headerlink" href="#client-code-generation" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start with the usual.</p>
+<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;playground&#39;</span><span class="p">);</span>
+<span class="n">cd</span><span class="p">(</span><span class="s1">&#39;playground&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>the <code class="docutils literal notranslate"><span class="pre">swagccg_m2m</span></code> assumes that a <code class="docutils literal notranslate"><span class="pre">confi.json</span></code> file is in your
-working directory. If that’s not the case you may pass the path as a
-char array (string) to such a json</p>
-<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swagccg_m2m</span><span class="p">(</span><span class="s1">&#39;abs/or/relative/path/to/your/jsonfile.json&#39;</span><span class="p">)</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">swagccg_m2m</span></code> assumes that a <code class="docutils literal notranslate"><span class="pre">confi.json</span></code> file is in your
+working directory. Below is an example of such a JSON-file. Create this
+file yourself or copy it from this location:</p>
+<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">confi_path</span> <span class="o">=</span> <span class="n">fullfile</span><span class="p">(</span><span class="n">fileparts</span><span class="p">(</span><span class="n">which</span><span class="p">(</span><span class="s1">&#39;swagccg_m2m__init__&#39;</span><span class="p">)),</span> <span class="s1">&#39;examples&#39;</span><span class="p">,</span> <span class="s1">&#39;example_confi.json&#39;</span> <span class="p">);</span>
 </pre></div>
 </div>
-<p>Below is an example.</p>
 <div class="section" id="confi-json">
 <h4>confi.json<a class="headerlink" href="#confi-json" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">swagger_path</span></code> key accepts a file path or web URL</p>
 <div class="code json highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;swagger_path&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/Users/Abuser/your_project/swagger.json&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;target_path&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/Users/Abuser/your_project/MyApiClient.m&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;MyApiClient&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;swagger_path&quot;</span><span class="p">:</span> <span class="s2">&quot;https://petstore.swagger.io/v2/swagger.json&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;target_path&quot;</span><span class="p">:</span> <span class="s2">&quot;PetStoreClient.m&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;PetStoreClient&quot;</span><span class="p">,</span>
 
   <span class="s2">&quot;api_port_local&quot;</span><span class="p">:</span> <span class="s2">&quot;5000&quot;</span><span class="p">,</span>
   <span class="s2">&quot;api_url_base_local&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
   <span class="s2">&quot;api_protocol_local&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
 
   <span class="s2">&quot;api_port_remote&quot;</span><span class="p">:</span> <span class="s2">&quot;80&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;api_url_base_remote&quot;</span><span class="p">:</span> <span class="s2">&quot;deployed.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;api_url_base_remote&quot;</span><span class="p">:</span> <span class="s2">&quot;petstore.swagger.io&quot;</span><span class="p">,</span>
   <span class="s2">&quot;api_protocol_remote&quot;</span><span class="p">:</span> <span class="s2">&quot;https&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>You can now call the code generator with:</p>
+<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swagccg_m2m</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Or pass the path string.</p>
+<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swagccg_m2m</span><span class="p">(</span><span class="n">confi_path</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>So now check whether you got your client in your working directory.</p>
+<p>🎉🎉🎈🎉</p>
 </div>
 </div>
-<div class="section" id="b-client-code-usage">
-<h3>b) Client Code Usage<a class="headerlink" href="#b-client-code-usage" title="Permalink to this headline">¶</a></h3>
-<p>🚨 <strong>the tool is not designed to work out of the box</strong> It’s not that I
-don’t believe in miracles. But I’d expect that you will need to work on
-the client code after generating the client code. Specifically,
-everything around <em>Authentication</em></p>
-<p>Have a look at the pet store example and test in the tests folder.</p>
-<p>Now, you or your end users could access the API via</p>
-<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">credentials</span><span class="o">.</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;username&#39;</span><span class="p">;</span>
-<span class="n">credentials</span><span class="o">.</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;youd_never_guess_that&#39;</span>
-
-<span class="n">my_client</span> <span class="o">=</span> <span class="n">MyApiClient</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">)</span>
-<span class="n">my_client</span><span class="o">.</span><span class="n">login_with_api</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<div class="section" id="client-code-usage">
+<h3>Client Code Usage<a class="headerlink" href="#client-code-usage" title="Permalink to this headline">¶</a></h3>
+<p>Take a look at the <code class="docutils literal notranslate"><span class="pre">test</span></code> and click your way through section by
+section. Meanwhile you could use the Swagger User Interface in parallel
+<code class="docutils literal notranslate"><span class="pre">https://petstore.swagger.io</span></code> to test the test.</p>
+<div class="code matlab highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">playbook_location</span> <span class="o">=</span> <span class="n">fullfile</span><span class="p">(</span><span class="n">fileparts</span><span class="p">(</span><span class="n">which</span><span class="p">(</span><span class="s1">&#39;swagccg_m2m__init__&#39;</span><span class="p">)),</span> <span class="s1">&#39;tests&#39;</span><span class="p">,</span> <span class="s1">&#39;test_petstore_play_book.m&#39;</span><span class="p">);</span>
+<span class="n">copyfile</span><span class="p">(</span><span class="n">playbook_location</span><span class="p">,</span> <span class="s1">&#39;test_template.m&#39;</span><span class="p">);</span>
+<span class="n">edit</span> <span class="n">test_template</span>
 </pre></div>
 </div>
 </div>
@@ -278,6 +300,14 @@ version of <code class="docutils literal notranslate"><span class="pre">loadjson
 hurdle.</p>
 </div>
 </div>
+<div class="section" id="finally">
+<h2>Finally<a class="headerlink" href="#finally" title="Permalink to this headline">¶</a></h2>
+<p>🚨 <strong>the tool is not designed to work out of the box for your project</strong></p>
+<p>It’s not that I don’t believe in miracles. But I’d expect that you will
+need to work on the client code after generating the client code.
+Specifically, everything around <em>Authentication</em>. This is because most
+of the swagger details are not parsed.</p>
+</div>
 <div class="section" id="gotchas">
 <h2>gotchas<a class="headerlink" href="#gotchas" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -285,17 +315,26 @@ hurdle.</p>
 <li>most of the swagger details are not parsed</li>
 <li>data models and mapping is omitted but adaptable</li>
 <li>little to none <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">status</span> <span class="pre">codes</span></code> parsing</li>
-<li>assumes knowledge on HTTP HEADER, BODY, METHODs</li>
+<li>assumes some knowledge on HTTP HEADER, BODY, METHODs</li>
 </ul>
 </div>
-<div class="section" id="recommended-reading">
-<h2>recommended reading<a class="headerlink" href="#recommended-reading" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://erkandem.github.io/swagccg-m2m">Project Documentation</a></p>
 <p>Mark Masse, REST API Design Rulebook - Designing Consistent RESTful Web
 Service Interfaces</p>
-<p><a class="reference external" href="http://petstore.swagger.io">Petstore - API</a></p>
+<p><a class="reference external" href="http://petstore.swagger.io">Petstore API - An Open Source Example</a></p>
 <p><a class="reference external" href="https://github.com/OAI/OpenAPI-Specification">OpenAPI
 Specififcation</a></p>
-<p><a class="reference external" href="https://github.com/Open-MBEE/swagger-codegen-matlab-client">Open-MBEE/swagger-codegen-matlab-client</a></p>
+<p>If you want to go for the full swagger codegen way there have a look at
+this:
+<a class="reference external" href="https://github.com/Open-MBEE/swagger-codegen-matlab-client">Open-MBEE/swagger-codegen-matlab-client</a></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">Create Read Update Delete -
+CRUD</a></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Overview_of_RESTful_API_Description_Languages">Overview of RESTful API
+Description_Languages</a></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Summary_table">HTTP methods summary
+table</a></p>
 </div>
 <div class="section" id="contact">
 <h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h2>
@@ -305,13 +344,12 @@ Specififcation</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">Source</span></code>:
 <a class="reference external" href="https://github.com/erkandem/swagccg-m2m/">github.com/erkandem/swagccg-m2m</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">Documentation</span></code>:
-<a class="reference external" href="https://erkandem.github.io/swagccg-m2m">erkandem/github.io/swagccg-m2m</a></p>
+<a class="reference external" href="https://erkandem.github.io/swagccg-m2m">erkandem.github.io/swagccg-m2m</a></p>
 </div>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
-<p>My part of the cake is licensed under terms of BSD. (approx: MIT +
-“Don’t use my name to advertise your code”) For details please see the
-<code class="docutils literal notranslate"><span class="pre">`license</span></code> &lt;LICENSE&gt;`__ file of this project.</p>
+<p>My part of the cake is licensed under terms of BSD. For details please
+see the <code class="docutils literal notranslate"><span class="pre">`license</span></code> &lt;LICENSE&gt;`__ file of this project.</p>
 <p>This project is dependent on code by: - <a class="reference external" href="https://www.mathworks.com/matlabcentral/fileexchange/35693-urlread2">urlread2
 v2012</a></p>
 <ul class="simple">
@@ -320,12 +358,12 @@ v2012</a></p>
 </div>
 <div class="section" id="client-code-license">
 <h2>Client Code License<a class="headerlink" href="#client-code-license" title="Permalink to this headline">¶</a></h2>
-<p>Show some love and leave a project link.</p>
+<p>Show some love and leave a project link. That’s all I ask for.</p>
 </div>
 <div class="section" id="click-bait">
 <h2>Click Bait<a class="headerlink" href="#click-bait" title="Permalink to this headline">¶</a></h2>
 <p>Visitors who were interested in this repo also took a look at:
-<a class="reference external" href="https://github.com/erkandem/swagccg_py2py">swagccg-py2py - Python to Python Client Code
+<a class="reference external" href="https://github.com/erkandem/swagccg-py2py">swagccg-py2py - Python to Python Client Code
 Generator</a></p>
 </div>
 </div>
