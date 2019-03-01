@@ -4,6 +4,11 @@ Design.md
 swagccg/client/
 .idea/
 make.bat
+ideas.md 
+swagccg/src/script_template.m
+
+
+setup.m
 
 package.m
 swagccg/rdir

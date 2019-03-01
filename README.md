@@ -3,7 +3,7 @@
 
 # swagccg_m2m
 
-*100% MatLab only client code generator for swagger (OpenAPI 2.0). Using MatLab. For MatLab*
+*MatLab only client code generator for swagger (OpenAPI 2.0). Using MatLab. For MatLab*
 
 ## Summary
 
@@ -15,17 +15,21 @@ This tool aims to place itself between those two extreme categories.
 
 ## Installation
 
-1. GitHub
+### 1. Download the User Distribution
 
-Releases are published on GitHub and mirrored on the file-exchange. If you have trouble related to ``newline`` try a ``git clone``
+Releases are published on GitHub and mirrored on the file-exchange. 
+If you have trouble related to ``newline`` try a ``git clone``.
 
-```bash
-https://github.com/erkandem/swagccg-m2m/releases/latest
-```
+ I. Download the user distribution from GitHub
+    ``https://github.com/erkandem/swagccg-m2m/releases/latest``
+  
+ II. Unzip it
+ 
+ III. Run the ``swagccg_m2m_setup``. It will put static files like the template,
+      the creation script and a zip file with client dependencies
+      in location of your choice and add them to search path.
 
-
-
-2. MPM
+### 2. MPM
 
 🚨 **not yet**
 
@@ -37,82 +41,113 @@ mpm install swagccg-m2m
 
 
 
-3. git clone 
+### 3. git clone 
 
+ I. Clone it.
 ```bash
-git clone https://github.com/erkandem/swagccg-m2m.git swagccg-m2m 
+git clone https://github.com/erkandem/swagccg-m2m.git tmpdir
 ```
-The ``git clone`` way  is rather for developers of this repo. Nonetheless, running ``swagccg_m2m_package`` after cloning will package a ``user version``
-Currently, all dependencies are included in a .zip file.
+ II. create a user distribution ``swagccg_m2m_package``
+ 
+ III. change to ``../packages`` 
+ 
+ IV. follow the steps 1.II
+ 
+The ``git clone`` way  is rather for developers of this repo.
+Nonetheless, running ``swagccg_m2m_package`` after cloning 
+will package a ``user version``. Currently, all dependencies
+are included in a .zip file.
 
-## Usage 
+## Getting Started 
 
-### a) Client Code Generation
-Fresh clients can be generated as easy as:
+###  Client Code Generation
 
-
+Let's start with the usual.
 ```MATLAB
-swagccg_m2m
+mkdir('playground');
+cd('playground');
 ```
-the ``swagccg_m2m`` assumes that a ``confi.json`` file is in your working directory.
-If that's not the case you may pass the path as a char array (string) to such a json
 
-```MATLAB
-swagccg_m2m('abs/or/relative/path/to/your/jsonfile.json')
+The ``swagccg_m2m`` assumes that a ``confi.json`` file is in 
+your working directory. Below is an example of such a JSON-file. 
+Create this file yourself or copy it from this location:
+
+```matlab
+confi_path = fullfile(fileparts(which('swagccg_m2m__init__')), 'examples', 'example_confi.json' );
 ```
-Below is an example.
 
 #### confi.json
-
+The ``swagger_path`` key accepts a file path or web URL
 ```JSON
 {
-  "swagger_path": "C:/Users/Abuser/your_project/swagger.json",
-  "target_path": "C:/Users/Abuser/your_project/MyApiClient.m",
-  "class_name": "MyApiClient",
+  "swagger_path": "https://petstore.swagger.io/v2/swagger.json",
+  "target_path": "PetStoreClient.m",
+  "class_name": "PetStoreClient",
 
   "api_port_local": "5000",
   "api_url_base_local": "127.0.0.1",
   "api_protocol_local": "http",
 
   "api_port_remote": "80",
-  "api_url_base_remote": "deployed.com",
+  "api_url_base_remote": "petstore.swagger.io",
   "api_protocol_remote": "https"
 }
 ```
 
+You can now call the code generator with:
 
-### b) Client Code Usage
-
-🚨 **the tool is not designed to work out of the box**
-It's not that I don't believe in miracles. But I'd expect that you will need to work
-on the client code after generating the client code. Specifically, everything around *Authentication*
-
-Have a look at the pet store example and test in the tests folder.
-
-
-Now, after you've polished up the code, you or your end users could access the API via
-```matlab
-credentials.('username') = 'username';
-credentials.('password') = 'youd_never_guess_that'
-
-my_client = MyApiClient('local')
-my_client.login_with_api(credentials)
+```MATLAB
+swagccg_m2m;
 ```
+
+Or pass the path string.
+
+```matlab
+swagccg_m2m(confi_path);
+```
+
+So now check whether you got your client in your working directory.
+
+🎉🎉🎈🎉
+
+### Client Code Usage
+
+Take a look at the ``test`` and click your way  through section by 
+section. Meanwhile you could use the Swagger User Interface
+in parallel ``https://petstore.swagger.io`` to test the test.
+
+```matlab
+playbook_location = fullfile(fileparts(which('swagccg_m2m__init__')), 'tests', 'test_petstore_play_book.m');
+copyfile(playbook_location, 'test_template.m');
+edit test_template
+```
+
 
 ###  a Word on JSON in MatLab
 
-MatLab has a built-in function to encode and decode JSON objects to  MatLab types.
-The``paths`` object within  a  ``swagger.json``  API definition has characters like ``/``
-or curly braces in case of path parameters like  ``/{pathParam}``. Obviously strings with these 
-characters are not valid variables or fieldnames in MatLab.
-Therefore a version of ``loadjson`` from ``jsonlab`` was modified to  overcome that hurdle.
+MatLab has a built-in function to encode and decode JSON objects 
+to  MatLab types. The``paths`` object within  a  ``swagger.json`` 
+API definition has characters like ``/`` or curly braces in case 
+of path parameters like  ``/{pathParam}``. Obviously strings with 
+these  characters are not valid variables or fieldnames in MatLab.
+Therefore a version of ``loadjson`` from ``jsonlab`` was 
+modified to  overcome that hurdle.
+
+
+## Finally
+🚨 **the tool is not designed to work out of the box for your project**
+
+It's not that I don't believe in miracles. But I'd expect 
+that you will need to work on the client code after generating 
+the client code. Specifically, everything around *Authentication*.
+This is because most of the swagger details are not parsed.
 
 ## gotchas
 - authorization is likely to be a break-point
 - most of the swagger details are not parsed
 - data models and mapping is omitted but adaptable
 - little to none ``HTTP status codes`` parsing
-- assumes knowledge on HTTP HEADER, BODY, METHODs
+- assumes some knowledge on HTTP HEADER, BODY, METHODs
 
 ## Further Reading
 
@@ -146,7 +181,6 @@ If you want to go for the full swagger codegen way there have a look at this:
 
 ## License
 My part of the cake is licensed under terms of BSD.
-(approx: MIT + "Don't use my name to advertise your code")
 For details please see the [``license``](LICENSE) file of this project.
 
 This project is dependent on code by:

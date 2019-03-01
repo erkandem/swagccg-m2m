@@ -7,7 +7,7 @@ function data = load_swagger_f(fname)
     % is limited to around 63 characters. The rules for valid fieldnames
     % are simialer to valid variablenames which excludes e.g. ``/``.
     %
-    % func:`loadjson` leaves a HEX representation of a removed character
+    % :func:`loadjson` leaves a HEX representation of a removed character
     % which with multiple deleted charackters surpasses the 63 character
     % limit quite often with regard to URLs 
     % 
@@ -43,9 +43,7 @@ function data = load_swagger_f(fname)
     %     }
     % 
     % 
-    % .. todo:: adjust fname handling such that swagger.json can be 
-    %           retrieved from the web (i.. http://example.com/swagger.json)
-    %
+
 
 
     data = loadjson_mod(fname);

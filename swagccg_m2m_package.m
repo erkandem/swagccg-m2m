@@ -40,8 +40,11 @@ function swagccg_m2m_package()
      };
     zip_name_final = ['swagccg_m2m_dist_', datestr(now(), 'yyyymmdd_HH_MM_SS')];
     zip_path = fullfile(tmp_path, zip_name_final);
-    zip(fullfile(p_root_path,'packages', zip_name_final), package_content, tmp_path);
+    target_dir = fullfile(p_root_path, 'packages', zip_name_final);
+    zip(target_dir, package_content, tmp_path);
     
     rmdir(tmp_path, 's');
+    fprintf('%s\n', [datestr(now(), 'yyyy-mm-dd HH:MM:SS'), ' | ', 'The package was created in:']);
+    fprintf('%s.zip\n', target_dir);
     
 end
